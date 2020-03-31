@@ -54,6 +54,7 @@ export type DeleteListingInput = {
 };
 
 export type CreateCompanyInput = {
+  id?: string | null,
   name: string,
   logo: string,
   webpage?: string | null,
@@ -63,6 +64,7 @@ export type CreateCompanyInput = {
 };
 
 export type UpdateCompanyInput = {
+  id: string,
   name?: string | null,
   logo?: string | null,
   webpage?: string | null,
@@ -141,6 +143,7 @@ export type ModelBooleanFilterInput = {
 };
 
 export type ModelCompanyFilterInput = {
+  id?: ModelIDFilterInput | null,
   name?: ModelStringFilterInput | null,
   logo?: ModelStringFilterInput | null,
   webpage?: ModelStringFilterInput | null,
@@ -195,6 +198,7 @@ export type CreateListingMutation = {
     } | null,
     company:  {
       __typename: "Company",
+      id: string,
       name: string,
       logo: string,
       webpage: string | null,
@@ -248,6 +252,7 @@ export type UpdateListingMutation = {
     } | null,
     company:  {
       __typename: "Company",
+      id: string,
       name: string,
       logo: string,
       webpage: string | null,
@@ -301,6 +306,7 @@ export type DeleteListingMutation = {
     } | null,
     company:  {
       __typename: "Company",
+      id: string,
       name: string,
       logo: string,
       webpage: string | null,
@@ -326,6 +332,7 @@ export type CreateCompanyMutationVariables = {
 export type CreateCompanyMutation = {
   createCompany:  {
     __typename: "Company",
+    id: string,
     name: string,
     logo: string,
     webpage: string | null,
@@ -363,6 +370,7 @@ export type UpdateCompanyMutationVariables = {
 export type UpdateCompanyMutation = {
   updateCompany:  {
     __typename: "Company",
+    id: string,
     name: string,
     logo: string,
     webpage: string | null,
@@ -400,6 +408,7 @@ export type DeleteCompanyMutationVariables = {
 export type DeleteCompanyMutation = {
   deleteCompany:  {
     __typename: "Company",
+    id: string,
     name: string,
     logo: string,
     webpage: string | null,
@@ -564,6 +573,7 @@ export type GetListingQuery = {
     } | null,
     company:  {
       __typename: "Company",
+      id: string,
       name: string,
       logo: string,
       webpage: string | null,
@@ -617,6 +627,7 @@ export type ListListingsQuery = {
       } | null,
       company:  {
         __typename: "Company",
+        id: string,
         name: string,
         logo: string,
         webpage: string | null,
@@ -640,6 +651,7 @@ export type GetCompanyQueryVariables = {
 export type GetCompanyQuery = {
   getCompany:  {
     __typename: "Company",
+    id: string,
     name: string,
     logo: string,
     webpage: string | null,
@@ -681,6 +693,7 @@ export type ListCompanysQuery = {
     __typename: "ModelCompanyConnection",
     items:  Array< {
       __typename: "Company",
+      id: string,
       name: string,
       logo: string,
       webpage: string | null,
@@ -786,6 +799,7 @@ export type OnCreateListingSubscription = {
     } | null,
     company:  {
       __typename: "Company",
+      id: string,
       name: string,
       logo: string,
       webpage: string | null,
@@ -839,6 +853,7 @@ export type OnUpdateListingSubscription = {
     } | null,
     company:  {
       __typename: "Company",
+      id: string,
       name: string,
       logo: string,
       webpage: string | null,
@@ -892,6 +907,7 @@ export type OnDeleteListingSubscription = {
     } | null,
     company:  {
       __typename: "Company",
+      id: string,
       name: string,
       logo: string,
       webpage: string | null,
@@ -917,6 +933,7 @@ export type OnCreateCompanySubscriptionVariables = {
 export type OnCreateCompanySubscription = {
   onCreateCompany:  {
     __typename: "Company",
+    id: string,
     name: string,
     logo: string,
     webpage: string | null,
@@ -955,6 +972,7 @@ export type OnUpdateCompanySubscriptionVariables = {
 export type OnUpdateCompanySubscription = {
   onUpdateCompany:  {
     __typename: "Company",
+    id: string,
     name: string,
     logo: string,
     webpage: string | null,
@@ -993,6 +1011,7 @@ export type OnDeleteCompanySubscriptionVariables = {
 export type OnDeleteCompanySubscription = {
   onDeleteCompany:  {
     __typename: "Company",
+    id: string,
     name: string,
     logo: string,
     webpage: string | null,

@@ -29,6 +29,7 @@ export const createListing = /* GraphQL */ `
         }
       }
       company {
+        id
         name
         logo
         webpage
@@ -73,6 +74,7 @@ export const updateListing = /* GraphQL */ `
         }
       }
       company {
+        id
         name
         logo
         webpage
@@ -117,6 +119,7 @@ export const deleteListing = /* GraphQL */ `
         }
       }
       company {
+        id
         name
         logo
         webpage
@@ -137,6 +140,7 @@ export const deleteListing = /* GraphQL */ `
 export const createCompany = /* GraphQL */ `
   mutation CreateCompany($input: CreateCompanyInput!) {
     createCompany(input: $input) {
+      id
       name
       logo
       webpage
@@ -168,6 +172,7 @@ export const createCompany = /* GraphQL */ `
 export const updateCompany = /* GraphQL */ `
   mutation UpdateCompany($input: UpdateCompanyInput!) {
     updateCompany(input: $input) {
+      id
       name
       logo
       webpage
@@ -199,6 +204,7 @@ export const updateCompany = /* GraphQL */ `
 export const deleteCompany = /* GraphQL */ `
   mutation DeleteCompany($input: DeleteCompanyInput!) {
     deleteCompany(input: $input) {
+      id
       name
       logo
       webpage

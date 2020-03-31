@@ -29,6 +29,7 @@ export const onCreateListing = /* GraphQL */ `
         }
       }
       company {
+        id
         name
         logo
         webpage
@@ -73,6 +74,7 @@ export const onUpdateListing = /* GraphQL */ `
         }
       }
       company {
+        id
         name
         logo
         webpage
@@ -117,6 +119,7 @@ export const onDeleteListing = /* GraphQL */ `
         }
       }
       company {
+        id
         name
         logo
         webpage
@@ -137,6 +140,7 @@ export const onDeleteListing = /* GraphQL */ `
 export const onCreateCompany = /* GraphQL */ `
   subscription OnCreateCompany($owner: String!) {
     onCreateCompany(owner: $owner) {
+      id
       name
       logo
       webpage
@@ -168,6 +172,7 @@ export const onCreateCompany = /* GraphQL */ `
 export const onUpdateCompany = /* GraphQL */ `
   subscription OnUpdateCompany($owner: String!, $editors: String!) {
     onUpdateCompany(owner: $owner, editors: $editors) {
+      id
       name
       logo
       webpage
@@ -199,6 +204,7 @@ export const onUpdateCompany = /* GraphQL */ `
 export const onDeleteCompany = /* GraphQL */ `
   subscription OnDeleteCompany($owner: String!, $editors: String!) {
     onDeleteCompany(owner: $owner, editors: $editors) {
+      id
       name
       logo
       webpage

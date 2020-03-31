@@ -7,7 +7,8 @@ type Salary {
 
 type Listing @model @auth(
     rules: [
-      {allow: owner, ownerField: "owner", operations: [create, update, delete]},
+      { allow: owner, ownerField: "owner", operations: [create, update, delete] },
+	  { allow: public, operations: [read]}
     ]) {
 	id: ID!
 	position: String!
@@ -33,8 +34,10 @@ type Listing @model @auth(
 type Company @model @auth(
     rules: [
       { allow: owner, ownerField: "owner", operations: [create, update, delete] },
-	  { allow: owner, ownerField: "editors", operations: [update, delete] }
+	  { allow: owner, ownerField: "editors", operations: [update, delete] },
+	  { allow: public, operations: [read] }
     ]) {
+	id: ID!
 	name: String!
 	logo: String!
 	webpage: String
@@ -47,7 +50,8 @@ type Company @model @auth(
 
 type Category @model  @auth(
     rules: [
-      { allow: owner, ownerField: "owner", operations: [create, update, delete] }
+      { allow: owner, ownerField: "owner", operations: [create, update, delete] },
+	  { allow: public, operations: [read] }
 	]) {
 	name: String!
 	description: String

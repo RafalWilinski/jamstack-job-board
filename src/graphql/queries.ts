@@ -29,6 +29,7 @@ export const getListing = /* GraphQL */ `
         }
       }
       company {
+        id
         name
         logo
         webpage
@@ -75,6 +76,7 @@ export const listListings = /* GraphQL */ `
           description
         }
         company {
+          id
           name
           logo
           webpage
@@ -94,6 +96,7 @@ export const listListings = /* GraphQL */ `
 export const getCompany = /* GraphQL */ `
   query GetCompany($id: ID!) {
     getCompany(id: $id) {
+      id
       name
       logo
       webpage
@@ -130,6 +133,7 @@ export const listCompanys = /* GraphQL */ `
   ) {
     listCompanys(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
+        id
         name
         logo
         webpage

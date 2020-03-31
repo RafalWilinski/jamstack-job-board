@@ -12,11 +12,19 @@
 			"providerPlugin": "awscloudformation",
 			"output": {
 				"authConfig": {
-					"additionalAuthenticationProviders": [],
+					"additionalAuthenticationProviders": [
+						{
+							"authenticationType": "AMAZON_COGNITO_USER_POOLS",
+							"userPoolConfig": {
+								"userPoolId": "authjamstackjobboardd25d9def"
+							}
+						}
+					],
 					"defaultAuthentication": {
-						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
-						"userPoolConfig": {
-							"userPoolId": "authjamstackjobboardd25d9def"
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"description": "admin-key",
+							"apiKeyExpirationDays": "365"
 						}
 					}
 				}
