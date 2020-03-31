@@ -1,0 +1,55 @@
+type Salary {
+	perYearFrom: Int
+	perYearTo: Int
+	perHourFrom: Int
+	perHourTo: Int
+}
+
+type Listing @model @auth(
+    rules: [
+      {allow: owner, ownerField: "owner", operations: [create, update, delete]},
+    ]) {
+	id: ID!
+	position: String!
+	description: String!
+	responsibilities: String
+	requirements: String
+	timezone: String
+	tags: [String]
+	location: String!
+	applyLink: String!
+	isPromoted: Boolean
+	salary: Salary!
+
+	category: Category @connection(name: "CategoryListings")
+	company: Company @connection(name: "CompanyListings")
+
+	createdAt: AWSDateTime!
+	updatedAt: AWSDateTime
+	expiresAt: AWSDateTime
+	closedAt: AWSDateTime
+}
+
+type Company @model @auth(
+    rules: [
+      { allow: owner, ownerField: "owner", operations: [create, update, delete] },
+	  { allow: owner, ownerField: "editors", operations: [update, delete] }
+    ]) {
+	name: String!
+	logo: String!
+	webpage: String
+	description: String
+	listings: [Listing] @connection(name: "CompanyListings")
+
+	createdAt: AWSDateTime!
+	updatedAt: AWSDateTime
+}
+
+type Category @model  @auth(
+    rules: [
+      { allow: owner, ownerField: "owner", operations: [create, update, delete] }
+	]) {
+	name: String!
+	description: String
+	listings: [Listing] @connection(name: "CategoryListings")
+}

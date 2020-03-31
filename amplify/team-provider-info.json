@@ -1,0 +1,22 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "jamstack-job-board-dev-20200331152728-authRole",
+            "UnauthRoleArn": "arn:aws:iam::085108115628:role/jamstack-job-board-dev-20200331152728-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::085108115628:role/jamstack-job-board-dev-20200331152728-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "jamstack-job-board-dev-20200331152728-deployment",
+            "UnauthRoleName": "jamstack-job-board-dev-20200331152728-unauthRole",
+            "StackName": "jamstack-job-board-dev-20200331152728",
+            "StackId": "arn:aws:cloudformation:us-west-2:085108115628:stack/jamstack-job-board-dev-20200331152728/5e9ba580-7353-11ea-bbe3-0ad20430b590",
+            "AmplifyAppId": "dli5808nssqzc"
+        },
+        "categories": {
+            "auth": {
+                "jamstackjobboardd25d9def": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"187224547248-l63a4lld0b7b8s3gos7taf149f1fa8rn.apps.googleusercontent.com\",\"client_secret\":\"CN3_oVo5TsIok3ZTTslTgDIp\"}]"
+                }
+            }
+        }
+    }
+}
