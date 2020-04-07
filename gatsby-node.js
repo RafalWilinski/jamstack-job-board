@@ -72,21 +72,23 @@ exports.sourceNodes = async ({
   })
 
   const listings = getSettingsData.data.data.listListings.items
-  const slugs = listings.map(listing => listing.id)
 
-  const slugData = {
-    key: "page-slugs",
-    data: slugs.length ? slugs : "none",
-  }
-  const slugNodeMeta = {
-    id: createNodeId(`my-data-${slugData.key}`),
-    parent: null,
-    children: [],
-    internal: {
-      type: `Slugs`,
-      contentDigest: createContentDigest(slugData),
-    },
-  }
-  const slugNode = Object.assign({}, slugData, slugNodeMeta)
-  createNode(slugNode)
+  listings.forEach(listing => {
+    const nodeContent = JSON.stringify(listing)
+
+    const nodeMeta = {
+      id: createNodeId(`my-data-${listing.id}`),
+      parent: null,
+      children: [],
+      internal: {
+        type: `Listing`,
+        mediaType: `text/html`,
+        content: nodeContent,
+        contentDigest: createContentDigest(listing),
+      },
+    }
+
+    const node = Object.assign({}, listing, nodeMeta)
+    createNode(node)
+  })
 }
