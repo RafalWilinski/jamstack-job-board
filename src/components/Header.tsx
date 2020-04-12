@@ -8,10 +8,12 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
   const [hidden, setHidden] = useState(true);
   return (
-    <nav x-data="{ open: true }" className="bg-gray-800">
-      <div
-        className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8"
-      >
+    <nav
+      x-data="{ open: true }"
+      className="bg-gray-800"
+      onClick={() => (!hidden ? setHidden(true) : null)}
+    >
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out">
