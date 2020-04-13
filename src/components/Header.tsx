@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import classNames from 'classnames';
+import useOnClickOutside from "../hooks/useOnClickOutside"
 
 interface HeaderProps {
 
 }
 
 const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
+  const ref = useRef();
   const [hidden, setHidden] = useState(true);
+  useOnClickOutside(ref, () => setHidden(true));
+
   return (
     <nav
-      x-data="{ open: true }"
       className="bg-gray-800"
-      onClick={() => (!hidden ? setHidden(true) : null)}
     >
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
@@ -26,7 +28,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
                 <path
                   className="inline-flex"
                   stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinejoin="round"
                   stroke-width="2"
                   d="M4 6h16M4 12h16M4 18h16"
                 />
@@ -112,7 +114,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
                 </button>
               </div>
               <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
-                <div
+               {( !hidden ? <div ref={ref}
                   className={classNames("py-1 rounded-md bg-white shadow-xs", {
                     hidden,
                   })}
@@ -135,7 +137,8 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
                   >
                     Sign out
                   </a>
-                </div>
+                </div> : null
+                )}
               </div>
             </div>
           </div>
