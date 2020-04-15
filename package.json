@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Rafal Wilinski <rafal@dynobase.dev>",
   "dependencies": {
+    "aws-amplify": "^3.0.8",
+    "aws-amplify-react": "^4.1.7",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "gatsby": "^2.19.45",
