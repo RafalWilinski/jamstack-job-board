@@ -1,24 +1,24 @@
+import { Auth } from "aws-amplify"
+
 const isBrowser = typeof window !== `undefined`
 
 export const setUser = user =>
   (window.localStorage.gatsbyUser = JSON.stringify(user))
 
 const getUser = () => {
-  if (window.localStorage.gatsbyUser) {
-    let user = JSON.parse(window.localStorage.gatsbyUser)
-    return user ? user : {}
-  }
-  return {}
+  return Auth.currentAuthenticatedUser({
+    bypassCache: false,
+  })
 }
 
-export const isLoggedIn = () => {
+export const isLoggedIn = async () => {
   if (!isBrowser) return false
 
-  const user = getUser()
+  const user = await getUser()
   if (user) return !!user.username
 }
 
-export const getCurrentUser = () => isBrowser && getUser()
+export const getCurrentUser = async () => isBrowser && getUser()
 
 export const logout = callback => {
   if (!isBrowser) return
