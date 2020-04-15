@@ -1,8 +1,14 @@
 const axios = require("axios")
 const graphqltag = require("graphql-tag")
 const gql = require("graphql")
-const config = require("./src/aws-exports")
 const { print } = gql
+let config = require("./config")
+
+if (process.env.aws_appsync_apiKey) {
+  config.aws_appsync_apiKey = process.env.aws_appsync_apiKey
+} else {
+  config = require("./src/aws-exports")
+}
 
 const getListings = `
 query ListListings(
