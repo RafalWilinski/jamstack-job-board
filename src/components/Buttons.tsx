@@ -1,6 +1,5 @@
 import React from "react"
 
-
 interface ButtonStyle {
   className: string;
 }
