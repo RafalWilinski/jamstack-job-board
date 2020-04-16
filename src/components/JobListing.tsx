@@ -9,7 +9,7 @@ import Edit from "./icons/Edit"
 import View from "./icons/View"
 import Checkmark from "./icons/Checkmark"
 
-import { PrimaryButton, SecondaryButton } from "./Buttons"
+import Button from "./Buttons"
 
 interface JobListingProps {
   name: string
@@ -44,17 +44,14 @@ const JobListing: React.FC<JobListingProps> = (props: JobListingProps) => {
       </div>
       <div className="mt-5 flex lg:mt-0 lg:ml-4">
         <span className="hidden sm:block shadow-sm rounded-md">
-          <SecondaryButton icon={<Edit />} textButton="Edit" />
+          <Button type = "SECONDARY" icon={<Edit />} text="Edit" />
         </span>
-
         <span className="hidden sm:block ml-3 shadow-sm rounded-md">
-          <SecondaryButton icon={<View />} textButton="View" />
+          <Button type = "SECONDARY" icon={<View />} text="View" />
         </span>
-
         <span className="sm:ml-3 shadow-sm rounded-md">
-          <PrimaryButton icon={<Checkmark />} textButton="Publish" />
+          <Button type = "PRIMARY" icon={<Checkmark />} text="Publish" />
         </span>
-
         <span
           x-data="{ open: false }"
           className="ml-3 relative shadow-sm rounded-md sm:hidden"
