@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import JobListing from "../components/JobListing"
-import config from "../aws-exports"
+import config from "../../config"
 
 Amplify.configure(config)
 
