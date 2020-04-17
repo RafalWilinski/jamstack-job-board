@@ -44,13 +44,13 @@ const JobListing: React.FC<JobListingProps> = (props: JobListingProps) => {
       </div>
       <div className="mt-5 flex lg:mt-0 lg:ml-4">
         <span className="hidden sm:block shadow-sm rounded-md">
-          <Button type = "SECONDARY" icon={<Edit />} text="Edit" />
+          <Button type="SECONDARY" icon={<Edit />} text="Edit" />
         </span>
         <span className="hidden sm:block ml-3 shadow-sm rounded-md">
-          <Button type = "SECONDARY" icon={<View />} text="View" />
+          <Button type="SECONDARY" icon={<View />} text="View" />
         </span>
         <span className="sm:ml-3 shadow-sm rounded-md">
-          <Button type = "PRIMARY" icon={<Checkmark />} text="Publish" />
+          <Button type="PRIMARY" icon={<Checkmark />} text="Publish" />
         </span>
         <span
           x-data="{ open: false }"

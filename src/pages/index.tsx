@@ -1,6 +1,5 @@
 import React from "react"
 import Amplify from "aws-amplify"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -16,7 +15,11 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Home" />
       {data.allListing.nodes.map(listing => (
-        <JobListing name={listing.position} location={listing.location} />
+        <JobListing
+          key={`${listing.id}`}
+          name={listing.position}
+          location={listing.location}
+        />
       ))}
     </Layout>
   )
