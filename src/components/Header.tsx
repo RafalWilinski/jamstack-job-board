@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react"
 import classNames from "classnames"
 import useOnClickOutside from "../hooks/useOnClickOutside"
-import { isLoggedIn } from "../utils/auth"
 import HeaderAvatar from "./HeaderAvatar"
 import useAuthState from "../hooks/useAuthState"
 
@@ -11,7 +10,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
   const ref = useRef()
   const [hidden, setHidden] = useState(true)
   useOnClickOutside(ref, () => setHidden(true))
-  const { isAuthLoading } = useAuthState()
+  const { isAuthLoading, isLoggedIn } = useAuthState()
 
   return (
     <nav className="bg-gray-800">
