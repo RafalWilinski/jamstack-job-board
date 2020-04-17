@@ -26,17 +26,18 @@ const ButtonType: StringMap = {
 interface ButtonProps {
   type: string;
   icon?: any;
-  text?: any;
+  text?: string;
+  navigation?: string;
   onClick?: () => any;
 }
 
 class Button extends React.Component<ButtonProps> {
   render() {
      return (
-       <button type="button" className={ButtonType[this.props.type].className} onClick={this.props.onClick}>
+       <a href={this.props.navigation} type="button" className={ButtonType[this.props.type].className} onClick={this.props.onClick}>
          {this.props.icon}
          {this.props.text}
-       </button>
+       </a>
      )
   }
 }
