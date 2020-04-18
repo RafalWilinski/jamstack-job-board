@@ -12,7 +12,6 @@ const Dashboard = () => {
 
   return (
     <AmplifyAuthenticator>
-      <AmplifySignIn slot="sign-in" />
       <AmplifyGoogleButton slot="sign-in"></AmplifyGoogleButton>
       <div>Dashboard!</div>
       <div>{JSON.stringify(user, null, 2)}</div>
