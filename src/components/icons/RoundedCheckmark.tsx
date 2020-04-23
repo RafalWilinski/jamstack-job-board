@@ -2,7 +2,7 @@ import React from "react"
 
 export default () => (
   <svg
-    className="flex-none m-2 h-6 fill-current text-purple-800"
+    className="flex-none m-4 h-6 fill-current text-indigo-600"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 20 20"
   >

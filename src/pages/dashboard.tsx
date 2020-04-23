@@ -7,11 +7,11 @@ const Dashboard = () => {
   const { user } = useAuthState()
 
   return (
-    <>
-      <RegisterPage />
-        <div>Dashboard!</div>
-        <div>{JSON.stringify(user, null, 2)}</div>
-    </>
+      <div className="bg-white">
+        <RegisterPage />
+          <div>Dashboard!</div>
+          <div>{JSON.stringify(user, null, 2)}</div>
+      </div>
   )
 }
 
