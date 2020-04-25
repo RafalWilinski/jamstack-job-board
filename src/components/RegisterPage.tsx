@@ -19,9 +19,9 @@ const RegisterPage: React.FC<RegisterPageProps> = (props: RegisterPageProps) => 
           JAMStack Job Board
         </span>
       </nav>
-      <div className="lg:flex lg:items-center lg:justify-between shadow-md p-5 rounded-lg mb-4">
-        <div className="hidden lg:block flex-col bg-white  w-full h-full rounded-md lg:w-1/2 justify-center items-start pb-24 px-10">
-          <div className="container bg-white rounded-md mt-16 h-100 mx-auto md:pt-4 px-24">
+      <div className="lg:flex items-center justify-between p-5 mb-4">
+        <div className="hidden lg:block flex-col bg-white  w-full h-full lg:w-1/2 justify-center items-start pb-24 px-8">
+          <div className="container bg-white justify-center mt-16 h-100 mx-auto md:pt-4 pl-24 pr-16">
             <Description
               title="Lorem Ipsum"
               subtitle="Fusce efficitur, lacus vel elementum vehicula, felis turpis dignissim sem, nec dapibus ex sem sit amet nulla."
@@ -48,7 +48,7 @@ const RegisterPage: React.FC<RegisterPageProps> = (props: RegisterPageProps) => 
                 <AmplifyFederatedButtons slot="sign-in" />
                 <AmplifyGoogleButton slot="sign-in" />
               </AmplifyAuthenticator>
-              <p className="text-xs leading-normal font-sans font-thin md:text-m mb-8 text-justify md:text-left">
+              <p className="leading-normal font-sans font-thin text-sm md:text-m mb-8 text-justify md:text-left">
                 By clicking continue, you agree to our Terms of Service and
                 Privacy Policy.
               </p>
@@ -57,7 +57,7 @@ const RegisterPage: React.FC<RegisterPageProps> = (props: RegisterPageProps) => 
         </div>
       </div>
       <div>
-        <div className="container mx-auto pt-24 md:pt-16 px-6">
+        <div className="container border-t-2 border-gray-200 mx-auto pt-24 md:pt-16 px-6">
           <p className="font-bold text-center text-2xl md:text-4xl px-3 mb-5 sm:mb-16">
             place for footer
           </p>
