@@ -6,12 +6,16 @@ function useAuthState() {
   const [user, setUser] = useState(null)
 
   const getUser = async () => {
-    const payload = await Auth.currentAuthenticatedUser({
-      bypassCache: false,
-    })
+    try {
+      const payload = await Auth.currentAuthenticatedUser({
+        bypassCache: false,
+      })
+      setUser(payload)
+    } catch (error) {
+      console.warn(error)
+    }
 
     setAuthLoading(false)
-    setUser(payload)
   }
 
   useEffect(() => {

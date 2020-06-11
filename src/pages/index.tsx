@@ -1,11 +1,11 @@
 import React from "react"
 import Amplify from "aws-amplify"
-import { Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import JobListing from "../components/JobListing"
-import config from "../aws-exports"
+import config from "../../config"
 
 Amplify.configure(config)
 
@@ -16,7 +16,11 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Home" />
       {data.allListing.nodes.map(listing => (
-        <JobListing name={listing.position} location={listing.location} />
+        <JobListing
+          key={`${listing.id}`}
+          name={listing.position}
+          location={listing.location}
+        />
       ))}
     </Layout>
   )

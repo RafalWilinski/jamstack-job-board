@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useRef } from "react"
 
 import More from "./icons/More"
 import Dollar from "./icons/Dollar"
@@ -8,6 +8,9 @@ import Suitcase from "./icons/Suitcase"
 import Edit from "./icons/Edit"
 import View from "./icons/View"
 import Checkmark from "./icons/Checkmark"
+import useOnClickOutside from "../hooks/useOnClickOutside"
+import classNames from "classnames"
+import Button from "./Buttons"
 
 interface JobListingProps {
   name: string
@@ -15,6 +18,10 @@ interface JobListingProps {
 }
 
 const JobListing: React.FC<JobListingProps> = (props: JobListingProps) => {
+  const ref = useRef()
+  const [hidden, setHidden] = useState(true)
+  useOnClickOutside(ref, () => setHidden(true))
+
   return (
     <div className="lg:flex lg:items-center lg:justify-between shadow-md p-5 rounded-lg mb-4">
       <div className="flex-1 min-w-0 ">
@@ -42,35 +49,14 @@ const JobListing: React.FC<JobListingProps> = (props: JobListingProps) => {
       </div>
       <div className="mt-5 flex lg:mt-0 lg:ml-4">
         <span className="hidden sm:block shadow-sm rounded-md">
-          <button
-            type="button"
-            className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50 transition duration-150 ease-in-out"
-          >
-            <Edit />
-            Edit
-          </button>
+          <Button type="SECONDARY" icon={<Edit />} text="Edit" />
         </span>
-
         <span className="hidden sm:block ml-3 shadow-sm rounded-md">
-          <button
-            type="button"
-            className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out"
-          >
-            <View />
-            View
-          </button>
+          <Button type="SECONDARY" icon={<View />} text="View" />
         </span>
-
         <span className="sm:ml-3 shadow-sm rounded-md">
-          <button
-            type="button"
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out"
-          >
-            <Checkmark />
-            Publish
-          </button>
+          <Button type="PRIMARY" icon={<Checkmark />} text="Publish" />
         </span>
-
         <span
           x-data="{ open: false }"
           className="ml-3 relative shadow-sm rounded-md sm:hidden"
@@ -78,29 +64,36 @@ const JobListing: React.FC<JobListingProps> = (props: JobListingProps) => {
           <button
             type="button"
             className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out"
+            onClick={() => setHidden(!hidden)}
           >
             More
             <More />
           </button>
-
           <div
             x-show="open"
             className="origin-top-right absolute right-0 mt-2 -mr-1 w-48 rounded-md shadow-lg"
           >
-            <div className="py-1 rounded-md bg-white shadow-xs">
-              <a
-                href="#"
-                className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+            {!hidden ? (
+              <div
+                ref={ref}
+                className={classNames("py-1 rounded-md bg-white shadow-xs", {
+                  hidden,
+                })}
               >
-                Edit
-              </a>
-              <a
-                href="#"
-                className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
-              >
-                View
-              </a>
-            </div>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                >
+                  Edit
+                </a>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                >
+                  View
+                </a>
+              </div>
+            ) : null}
           </div>
         </span>
       </div>

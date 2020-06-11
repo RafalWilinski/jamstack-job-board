@@ -1,10 +1,11 @@
 import React, { useState, useRef } from "react"
 import useOnClickOutside from "../hooks/useOnClickOutside"
-import { isLoggedIn } from "../utils/auth"
 import HeaderAvatar from "./HeaderAvatar"
 import useAuthState from "../hooks/useAuthState"
 import { PrimaryButton } from "./Buttons"
 import { Link } from "gatsby"
+
+import Button from "./Buttons"
 
 interface HeaderProps {}
 
@@ -12,7 +13,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
   const ref = useRef()
   const [hidden, setHidden] = useState(true)
   useOnClickOutside(ref, () => setHidden(true))
-  const { isAuthLoading } = useAuthState()
+  const { isAuthLoading, isLoggedIn } = useAuthState()
 
   return (
     <nav className="bg-gray-800">
@@ -28,16 +29,16 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
               >
                 <path
                   className="inline-flex"
-                  stroke-linecap="round"
+                  strokeLinecap="round"
                   strokeLinejoin="round"
-                  stroke-width="2"
+                  strokeWidth="2"
                   d="M4 6h16M4 12h16M4 18h16"
                 />
                 <path
                   className="hidden"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
@@ -62,25 +63,13 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
                   href="#"
                   className="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
                 >
-                  Dashboard
+                  Jobs
                 </a>
                 <a
                   href="#"
                   className="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
                 >
                   Team
-                </a>
-                <a
-                  href="#"
-                  className="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                >
-                  Projects
-                </a>
-                <a
-                  href="#"
-                  className="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                >
-                  Calendar
                 </a>
               </div>
             </div>
@@ -91,7 +80,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
                 href="#"
                 className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
               >
-                Dashboard
+                Jobs
               </a>
               <a
                 href="#"
@@ -99,27 +88,13 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
               >
                 Team
               </a>
-              <a
-                href="#"
-                className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-              >
-                Projects
-              </a>
-              <a
-                href="#"
-                className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-              >
-                Calendar
-              </a>
             </div>
           </div>
           {isAuthLoading && <div>Loading...</div>}
           {!isAuthLoading && !isLoggedIn && (
-            <Link to="/dashboard">
-              <span className="sm:ml-3 shadow-sm rounded-md">
-                <PrimaryButton textButton="Post a Job" />
-              </span>
-            </Link>
+            <span className="sm:ml-3 shadow-sm rounded-md">
+              <Button type="PRIMARY" navigation="dashboard" text="Post a Job" />
+            </span>
           )}
           {!isAuthLoading && isLoggedIn && (
             <HeaderAvatar ref={ref} hidden={hidden} setHidden={setHidden} />
