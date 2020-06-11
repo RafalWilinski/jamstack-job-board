@@ -2,6 +2,8 @@ import React, { useState, useRef } from "react"
 import useOnClickOutside from "../hooks/useOnClickOutside"
 import HeaderAvatar from "./HeaderAvatar"
 import useAuthState from "../hooks/useAuthState"
+import { PrimaryButton } from "./Buttons"
+import { Link } from "gatsby"
 
 import Button from "./Buttons"
 
