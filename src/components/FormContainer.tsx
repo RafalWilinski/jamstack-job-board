@@ -9,6 +9,8 @@ import { listListings } from "../graphql/queries"
 import Button from "./Buttons"
 import Section from "./FormInputSections"
 
+import MapComponent from "../components/Map"
+
 
 interface FormContainerProps {}
 
@@ -54,7 +56,7 @@ const FormContainer: React.FC<FormContainerProps> = (props: FormContainerProps) 
       <div className="justify-between w-4/5">
         <div className="lg:flex bg-gray-100 justify-between shadow-md p-5 rounded-lg mb-4 relative h-24">
           <div className="flex justify-center min-w-full h-auto">
-              <Section type="TITLE" value={formState.title} />
+            <Section type="TITLE" value={formState.title} />
           </div>
         </div>
         <div className="flex flex-row space-x-4 min-h-64 h-64">
@@ -82,14 +84,27 @@ const FormContainer: React.FC<FormContainerProps> = (props: FormContainerProps) 
         </div>
         <div className="lg:flex bg-gray-100 justify-between shadow-md p-5 rounded-lg mb-4 relative">
           <div className="flex justify-center min-w-full">
-            <div className="flex justify-center min-w-full text-gray-500 text-xl font-bold">
-              What about location?
+            <div className="flex flex-col min-w-full">
+              <h2 className="text-xl text-center font-bold leading-7 text-gray-500 pb-3">
+                What about location?
+              </h2>
+              <MapComponent />
             </div>
           </div>
         </div>
         <div className="flex justify-between px-6">
-          <Button type="SECONDARY" navigation="/" text="Go back" icon={<Left />} />
-          <Button type="PRIMARY" text="Save" icon={<Checkmark />} onClick={addListing} />
+          <Button
+            type="SECONDARY"
+            navigation="/"
+            text="Go back"
+            icon={<Left />}
+          />
+          <Button
+            type="PRIMARY"
+            text="Save"
+            icon={<Checkmark />}
+            onClick={addListing}
+          />
         </div>
         {listings.map((listing, index) => (
           <div key={listing.id ? listing.id : index}>
