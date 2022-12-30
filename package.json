@@ -10,7 +10,7 @@
     "aws-amplify-react": "^4.1.7",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
-    "gatsby": "^2.19.45",
+    "gatsby": "^2.32.13",
     "gatsby-image": "^2.2.44",
     "gatsby-plugin-emotion": "^4.2.1",
     "gatsby-plugin-manifest": "^2.2.48",
